@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     if @item.save
       return redirect_to root_path
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       return redirect_to item_path(@item)
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
 
@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       return redirect_to root_path
     else
-      render 'show'
+      render 'show', status: :unprocessable_entity
     end
   end
 
